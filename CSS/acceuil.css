@@ -33,3 +33,14 @@ nav > ul > li > a {
     text-decoration: none;
     border-radius: 10px;
 }
+
+nav a:active {
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+
+}
+
+nav a:hover{
+  background-color: rgb(255, 255, 255);
+  color: black
+}
