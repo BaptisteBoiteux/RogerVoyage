@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="fr">
 	<head>
+        <script src="../JS/Navigation.js"></script>
+        <script src="../JS/Identification_prix.js"></script>
         <link rel="stylesheet" href="../CSS/acceuil.css">
 		<meta charset="UTF-8">
 		<title>RogerVoyage</title>
@@ -22,7 +24,7 @@
         <main>
             <img src="../Images/Carte_Normandie.jpg" alt="Duché de Normandie" usemap="#Carte_Normandie" class="Carte"/>
             <map name="Carte_Normandie">
-            <area shape="rect" coords="244,138 254,150" href="Reservation.html" target="_blank" alt="Caen" />
+            <area id=Caen onclick = "identification()" shape="rect" coords="244,138 254,150" href="Reservation.html" target="_blank" alt="Caen" />
             <! https://www.image-map.net/ pour avoir les coordonées>
             </map>
             <br>
