@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 	<head>
-        <script src="../JS/Navigation.js"></script>
+        <script src="../JS/Reservation.js"></script>
         <link rel="stylesheet" href="../CSS/acceuil.css">
 		<meta charset="UTF-8">
 		<title>Reservation</title>
@@ -21,17 +21,17 @@
                 </ul>
         </nav>
         <main>
-            <form "Reservationform" action="/panier.html" onsubmit="validateForm()" method="post">
+            <form name= "Reservationform" action= "Recapitulatif.html" onsubmit="validateForm()" method="post">
                 <fieldset>
                     <legend>Formulaire de réservation</legend>
                     Prénom :<br>
-                    <input type="text" placeholder="votre prénom" id = "prenom"><br>
+                    <input type="text" placeholder="votre prénom" id = "prenomrecap"><br>
                     Nom :<br>
                     <input type="text" placeholder="votre nom"><br>
                     Adresse mail :<br>
                     <input type="text" placeholder="votre adresse mail"><br>
                     Numéro de téléphone :<br>
-                    <input type="text" placeholder="+33 "><br>
+                    <input type="text" placeholder="+33"><br>
                     Date de départ :<br>
                     <input type="date"><br>
                     Date de retour :<br>
@@ -42,12 +42,10 @@
                     <input type="number"><br>
                     <input type="checkbox">Petit déjeuner<br>
                     Demande de renseignement:<br>
-                    <textarea  style="width: 100%; height:200px "  >Bonjour, je souhaiterais obtenir des renseignements sur</textarea>
+                    <textarea  style="width: 100%; height:200px"  >Bonjour, je souhaiterais obtenir des renseignements sur</textarea>
                     <br>Prix calculé <br>
-                    <input type="button" value="Reserver"><br>
+                    <input type="submit" value="Reserver"><br>
                     <input type="button" value="Réinitialiser">
-                    
-                   
 
                 </fieldset>
             </form>
