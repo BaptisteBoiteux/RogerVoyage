@@ -1,9 +1,9 @@
 var Destination = ["Caen","Montfort","Cherbourg","Eu","Mont-Saint-Michel","Japon","Australie","Rouen"];
 
-class Desti {
+class Destination {
   constructor(prix, titre) {
-    this.prix = "prix";
-    this.titre = "titre";
+    this.prix = prix;
+    this.titre = titre ;
   }
 }
 function validateForm()
@@ -20,11 +20,3 @@ function validateForm()
 function test_destination(){
   var test = document.getElementById("test").innerHTML = Destination[0];
 }
-/*function validateForm() 
-{
-  var prenom = document.forms["Reservationform"]["prenomrecap"].value;
-  if (prenom == "") 
-  {
-    alert("Name must be filled out");return false;
-  }
-}*/

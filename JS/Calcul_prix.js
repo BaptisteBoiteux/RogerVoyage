@@ -1,11 +1,28 @@
+const PrixPP = 200;
+const PrixPetitDej = 12;
+
 function CalculPrixSejour()
 {
-    var PrixPP = 200;
-    var NbAdulte = parseInt(document.getElementById("NbAdulte").value,10);
-    var NbEnfant = parseInt(document.getElementById("NbEnfant").value,10);
-    /*var PetitDej = parseInt(document.getElementById("Petitdej").value,10);*/
-    var PrixTotal = PrixPP*NbAdulte + PrixPP*0.4*NbEnfant;
-    var Affprix = document.getElementById("Prix").innerHTML = "le Prix calculé est : "+PrixTotal;
-    console.log(NbAdulte);
-    console.log(PrixTotal);
+    var NbAdulte = document.getElementById("NbAdulte").value;
+    var NbEnfant = document.getElementById("NbEnfant").value;
+    var PetitDej = document.getElementById('PetitDej').checked;
+    var PrixTotal = PrixPP*NbAdulte + PrixPP*0.4*NbEnfant + (NbAdulte + NbEnfant)*PetitDej*PrixPetitDej;
+    var Affprix = document.getElementById("Prix").innerHTML = "Prix du Sejour : "+ PrixTotal;
 }
+
+function temps(date)
+{
+var d = new Date(date[2], date[1] - 1, date[0]);
+return d.getTime();
+}
+function calculer() 
+{ 
+
+var date1=document.getElementById("DDepart").value
+var date2=document.forms['form1'].elements['date2'].value
+
+var debut = temps(date1.split("/"));
+var fin = temps(date2.split("/"));
+var nb = (fin - debut) / (1000 * 60 * 60 * 24); // + " jours";
+document.forms['form1'].elements['jour'].value=nb;
+} 
