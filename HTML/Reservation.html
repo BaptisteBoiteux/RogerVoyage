@@ -2,6 +2,7 @@
 <html lang="fr">
 	<head>
         <script src="../JS/Reservation.js"></script>
+        <script src="../JS/Calcul_prix.js"></script>
         <link rel="stylesheet" href="../CSS/acceuil.css">
 		<meta charset="UTF-8">
 		<title>Reservation</title>
@@ -37,15 +38,16 @@
                     Date de retour :<br>
                     <input type="date"><br>
                     Nombre d'adulte :<br>
-                    <input type="number"><br>
+                    <input type="number" id = "NbAdulte"><br>
                     Nombre d'enfant (-12 ans) :<br>
-                    <input type="number"><br>
-                    <input type="checkbox">Petit déjeuner<br>
+                    <input type="number" id = "NbEnfant"><br>
+                    <input type="checkbox" id = "PetitDej">Petit déjeuner<br>
                     Demande de renseignement:<br>
                     <textarea  style="width: 100%; height:200px"  >Bonjour, je souhaiterais obtenir des renseignements sur</textarea>
-                    <br>Prix calculé <br>
+                    <br><p id = "Prix" >Prix calculé</p><br>
                     <input type="submit" value="Reserver"><br>
                     <input type="button" value="Réinitialiser">
+                    <input type="button" value="Calcul_prix" onclick="CalculPrixSejour()">
 
                 </fieldset>
             </form>
