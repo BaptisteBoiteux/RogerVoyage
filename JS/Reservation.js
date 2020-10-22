@@ -1,12 +1,13 @@
-var Destination = ["Caen","Montfort","Cherbourg","Eu","Mont-Saint-Michel","Japon","Australie","Rouen"];
+var Destination = [Destination1,"Montfort","Cherbourg","Eu","Mont-Saint-Michel","Japon","Australie","Rouen"];
 var test = 3;
 
-class Desti {
+class Destination {
   constructor(titre,prix){
-    this.titre = "???????";
-    this.prix  = "2";
+    this._titre = titre;
+    this._prix  = prix;
   }
 }
+var Destination1 = Destination("Caen","200")
 function validateForm()
 {
   var prenom = document.getElementById("prenom");
