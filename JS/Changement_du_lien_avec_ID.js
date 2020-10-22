@@ -2,7 +2,7 @@
 function identification(){ 
   document.getElementById ("Caen").href='Reservation.html?id=Caen';
   document.getElementById ("Cherbourg").href='Reservation.html?id=Cherbourg';
-  document.getElementById ("Montfort").href='Reservation.html?id=Montfort';
+  document.getElementById ("Montfort").href='Reservation.html?id=Montfort'; 
   document.getElementById ("Eu").href='Reservation.html?id=Eu';
   document.getElementById ("Mont-Saint-Michel").href='Reservation.html?id=Mont-Saint-Michel';
   document.getElementById ("Japon").href='Reservation.html?id=Japon';

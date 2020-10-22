@@ -1,10 +1,9 @@
 var Destination = ["Caen","Montfort","Cherbourg","Eu","Mont-Saint-Michel","Japon","Australie","Rouen"];
-var test = 3;
 
 class Desti {
-  constructor(titre,prix){
-    this.titre = "???????";
-    this.prix  = "2";
+  constructor(prix, titre) {
+    this.prix = "prix";
+    this.titre = "titre";
   }
 }
 function validateForm()
@@ -15,11 +14,11 @@ function validateForm()
       alert("le prenom ptn");return false;
     }
     else{
-      console.log(prenom.value);
+      console.log("hello");
     }
 }
-function test_destination{
-  console.log(test);
+function test_destination(){
+  var test = document.getElementById("test").innerHTML = Destination[0];
 }
 /*function validateForm() 
 {
