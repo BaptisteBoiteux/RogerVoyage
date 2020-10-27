@@ -1,4 +1,4 @@
-var Destination = ["Caen","Montfort","Cherbourg","Eu","Mont-Saint-Michel","Japon","Australie","Rouen"];
+var Destination = ["Caen","Montfort","Cherbourg","Eu","Mont-Saint-Michel","Tokyo","Montréal","Rouen"];
 
 class Destination {
   constructor(prix, titre) {
