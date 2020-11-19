@@ -1,4 +1,4 @@
-var Destination = ["Caen","Montfort","Cherbourg","Eu","Mont-Saint-Michel","Conteville","Tokyo","Montréal","Rouen"];
+var DestinationTab = ["Caen","Montfort","Cherbourg","Eu","Mont-Saint-Michel","Conteville","Tokyo","Montréal","Rouen"];
 
 class Destination {
   constructor(prix, titre) {
@@ -6,6 +6,7 @@ class Destination {
     this.titre = titre ;
   }
 }
+
 function validateForm()
 {
   var prenom = document.getElementById("prenom");
@@ -17,6 +18,4 @@ function validateForm()
       console.log("hello");
     }
 }
-function test_destination(){
-  var test = document.getElementById("test").innerHTML = Destination[0];
-}
+

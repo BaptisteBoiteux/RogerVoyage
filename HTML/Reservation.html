@@ -22,7 +22,7 @@
                 </ul>
         </nav>
         <main>
-            <form name= "Reservationform" action= "Recapitulatif.html" onsubmit="return validateForm()" method="post" onchange ="CalculPrixSejour()">
+            <form name= "Reservationform" action= "Recapitulatif.html" onsubmit="return validateForm()" method="post" onchange ="CalculPrixSejour()" onchange ="Duree">
                 <fieldset>
                     <legend>Formulaire de réservation</legend>
                     Prénom :<br>
@@ -46,9 +46,7 @@
                     <textarea  style="width: 100%; height:200px"  >Bonjour, je souhaiterais obtenir des renseignements sur</textarea>
 
                     <input value="Reserver" onclick = "validateForm()" type="submit" ><br>
-                    <input type="button" value="Calcul Date" onclick="duree()">
                     <input type="button" value="Réinitialiser">
-                    <input type="button" onclick = "test_destination()" value="Destination">
                     <br><p id = "Prix" >Prix calculé</p><br>
 
                 </fieldset>
