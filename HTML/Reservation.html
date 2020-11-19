@@ -34,9 +34,9 @@
                     Numéro de téléphone :<br>
                     <input type="text" placeholder="+33"><br>
                     Date de départ :<br>
-                    <input type="date"><br>
+                    <input type="date" id = "DateDebut"><br>
                     Date de retour :<br>
-                    <input type="date"><br>
+                    <input type="date" id = "DateFin"><br>
                     Nombre d'adulte :<br>
                     <input type="number" id = "NbAdulte"><br>
                     Nombre d'enfant (-12 ans) :<br>
@@ -46,6 +46,7 @@
                     <textarea  style="width: 100%; height:200px"  >Bonjour, je souhaiterais obtenir des renseignements sur</textarea>
 
                     <input value="Reserver" onclick = "validateForm()" type="submit" ><br>
+                    <input type="button" value="Calcul Date" onclick="duree()">
                     <input type="button" value="Réinitialiser">
                     <input type="button" onclick = "test_destination()" value="Destination">
                     <br><p id = "Prix" >Prix calculé</p><br>

@@ -10,19 +10,11 @@ function CalculPrixSejour()
     var Affprix = document.getElementById("Prix").innerHTML = "Prix du Sejour : "+ PrixTotal;
 }
 
-function temps(date)
+function duree() 
 {
-var d = new Date(date[2], date[1] - 1, date[0]);
-return d.getTime();
-}
-function calculer() 
-{ 
 
-var date1=document.getElementById("DDepart").value
-var date2=document.forms['form1'].elements['date2'].value
-
-var debut = temps(date1.split("/"));
-var fin = temps(date2.split("/"));
-var nb = (fin - debut) / (1000 * 60 * 60 * 24); // + " jours";
-document.forms['form1'].elements['jour'].value=nb;
+var date1 = Date(document.getElementById("DateDebut")).getTime;
+var date2 = new Date(document.getElementById("DateFin")).getTime;
+//var nb = (fin - debut) / (1000 * 60 * 60 * 24); // + " jours";
+console.log("tests" + date1);
 } 
