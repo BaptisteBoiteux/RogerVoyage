@@ -1,7 +1,7 @@
 class Destination {
   constructor(prix, titre) {
     this.prix 		 = prix;
-    this.titre 		 = titre ;
+    this.titre 		 = titre;
   }
 }
 const Caen                = new Destination(200,"Caen");
@@ -32,8 +32,38 @@ function Duree()
 {
 var date1 = new Date(document.getElementById("DateDebut").value).getTime();
 var date2 = new Date(document.getElementById("DateFin").value).getTime();
-var jour = (date2 - date1) / (1000 * 60 * 60 * 24); // + " jours";
+var jour = (date2 - date1) / (1000 * 60 * 60 * 24);
 return jour
 } 
+
+function validateForm()
+{
+  var prenom = document.getElementById("prenom");
+  var alerte = "! ERREUR !\n";
+  var nb_adulte = document.getElementById("NbAdulte");
+  var nb_enfant = document.getElementById("NbEnfant")
+  var dateDebut = document.getElementById("DateDebut");
+  var dateFin = document.getElementById("DateFin");
+    if (prenom.value == "") 
+    {
+      alerte += "Vous devez rentrer un Prenom\n";
+    }
+    if (nb_adulte.value == 0)
+    {
+      alerte += "Le nombre d'adulte doit être supérieur à 0\n";
+      if (nb_enfant.value > 0)
+      {
+        alerte += "Un enfant ne peut voyager seul\n";
+      }
+    }
+    if (dateDebut.value > dateFin.value)
+    {
+      alerte += "La date de départ doit être antérieur à la date de retour\n";
+    }
+
+
+    alert(alerte);
+    return false;
+}
 
 
