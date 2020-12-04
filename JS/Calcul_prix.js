@@ -60,8 +60,6 @@ function validateForm()
     {
       alerte += "La date de départ doit être antérieur à la date de retour\n";
     }
-
-
     alert(alerte);
     return false;
 }
