@@ -29,7 +29,7 @@
                     Nom :<br>
                     <input type="text" placeholder="votre nom" id = "nom"><br>
                     Adresse mail :<br>
-                    <input type="text" placeholder="votre adresse mail"><br>
+                    <input type="text" placeholder="votre adresse mail" id = "mail"><br>
                     Numéro de téléphone :<br>
                     <input type="text" placeholder="+33"><br>
                     Date de départ :<br>
@@ -44,7 +44,7 @@
                     Demande de renseignement:<br>
                     <textarea  style="width: 100%; height:200px"  >Bonjour, je souhaiterais obtenir des renseignements sur</textarea>
 
-                    <input value="Reserver" onclick = "validateForm()" type="submit" ><br>
+                    <input value="Reserver" onclick = "validateForm()" onclick="self.location.href='Recapitulatif.html'" type="submit"  href="Recapitulatif.html" ><br>
                     <input type="button" onclick ="reinitialiser_form()" value="Réinitialiser">
                     <br><p id = "Prix" >Prix calculé</p><br>
 
