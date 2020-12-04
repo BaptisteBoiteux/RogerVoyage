@@ -28,7 +28,11 @@ function CalculPrixSejour()
     var PetitDej = document.getElementById('PetitDej').checked;
     let sejour_id = new URLSearchParams(window.location.search).get("id");
     var PrixTotal = Duree()*(DestinationTab[sejour_id].prix*NbAdulte + DestinationTab[sejour_id].prix*0.4*NbEnfant + (NbAdulte + NbEnfant)*PetitDej*PrixPetitDej);
-    var Affprix = document.getElementById("Prix").innerHTML = "Prix du Sejour : "+ PrixTotal;
+    if (!(PrixTotal > 0))
+    {
+      PrixTotal = "Erreur"
+    }
+    document.getElementById("Prix").innerHTML = "Prix du Sejour : "+ PrixTotal;
 }
 
 function Duree() 
@@ -42,16 +46,27 @@ return jour
 function validateForm()
 {
   var prenom = document.getElementById("prenom");
-  var alerte = "! ERREUR !\n";
+  var nom = document.getElementById("nom");
   var nb_adulte = document.getElementById("NbAdulte");
   var nb_enfant = document.getElementById("NbEnfant")
   var dateDebut = document.getElementById("DateDebut");
   var dateFin = document.getElementById("DateFin");
+  var mail = document.getElementById("mail");
+  var alerte = "! ERREUR !\n";
+
     if (prenom.value == "") 
     {
-      alerte += "Vous devez rentrer un Prenom\n";
+      alerte += "Vous devez entrer un prenom\n";
     }
-    if (nb_adulte.value == 0)
+    if (nom.value == "") 
+    {
+      alerte += "Vous devez entrer un nom\n";
+    }
+    if (mail.value == "") 
+    {
+      alerte += "Vous devez entrer une adresse mail\n";
+    }
+    if (nb_adulte.value <= 0)
     {
       alerte += "Le nombre d'adulte doit être supérieur à 0\n";
       if (nb_enfant.value > 0)
@@ -59,13 +74,31 @@ function validateForm()
         alerte += "Un enfant ne peut voyager seul\n";
       }
     }
+    if (nb_enfant.value < 0)
+      {
+        alerte += "Le nombre d'enfant ne peut être négatif\n";
+      }
+    if (dateDebut.value == "") 
+    {
+      alerte += "Vous devez rentrer une date de départ\n";
+    }
+    if (dateFin.value == "") 
+    {
+      alerte += "Vous devez rentrer une date de retour\n";
+    }
     if (dateDebut.value > dateFin.value)
     {
       alerte += "La date de départ doit être antérieur à la date de retour\n";
     }
-
-
-    alert(alerte);
+    if (alerte != "! ERREUR !\n")
+    {
+      alert(alerte);
+    }
+    else
+    {
+      document.location.href="Recapitulatif.html"
+    }
+    
     return false;
 }
 
