@@ -2,7 +2,7 @@
 <html lang="fr">
 	<head>
         <link rel="stylesheet" href="../CSS/acceuil.css">
-        <script src="../JS/scroll.js"></script>
+        <script src="../JS/Calcul_prix.js"></script>
 		<meta charset="UTF-8">
 		<title>Connexion</title>
 	</head>
@@ -22,10 +22,11 @@
         </nav>
         <main>
             Identifiant :<br>
-            <input type="text"><br>
+            <input type="text" id = "identité"><br>
             Mot de passe :<br>
-            <input type="password"><br>
-            <input type="button" value="Se Connecter"><br>
+            <input type="password" id = "password"><br>
+            <input type="button" value="Se Connecter" onclick = "test_identité()"><br>
+
         </main>
 		
         
