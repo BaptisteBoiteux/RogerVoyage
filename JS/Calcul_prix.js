@@ -14,6 +14,9 @@ const Tokyo               = new Destination(300,"Tokyo");
 const Montréal            = new Destination(200,"Montréal");
 const Rouen               = new Destination(35,"Rouen");
 
+
+let identifiant = 
+'{ "identifiant" : ["titouan_le_s","normandie_fan","darksasuke"],"mdp" : ["12345","jtm_norm","tropdark"]}';
 var DestinationTab = [Caen,Montfort,Cherbourg,Eu,Mont_Saint_Michel,Conteville,Tokyo,Montréal,Rouen];
 
 const PrixPetitDej = 12;
@@ -129,4 +132,36 @@ function topFunction() {
 function Recap(){
   var nom = document.getElementById("nom").value;
   document.getElementById("recap").innerHTML = nom
+}
+
+function test_identité() {
+  let connexion = (JSON.parse(identifiant));
+  var identi = document.getElementById("identité").value;
+  var mot_de_passe = document.getElementById("password").value;
+  var vrai_identité = false;
+  var i=0;
+  while ( i < connexion.identifiant.length && vrai_identité == false)
+  {
+    if (identi == connexion.identifiant[i])
+    {
+      var i_identifiant = i;
+      vrai_identité = true;
+    }
+    i++;
+  }
+  if(vrai_identité)
+  {
+    if(mot_de_passe != connexion.mdp[i_identifiant])
+    {
+      vrai_identité = false;
+    }
+  }
+  if (vrai_identité) 
+  {
+    console.log("bravo titou");
+  }
+  else
+  {
+    console.log("ptdr t'est qui");
+  }
 }
