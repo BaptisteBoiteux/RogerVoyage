@@ -25,7 +25,7 @@ function CalculPrixSejour()
     var PetitDej = document.getElementById('PetitDej').checked;
     let sejour_id = new URLSearchParams(window.location.search).get("id");
     var PrixTotal = Duree()*(DestinationTab[sejour_id].prix*NbAdulte + DestinationTab[sejour_id].prix*0.4*NbEnfant + (NbAdulte + NbEnfant)*PetitDej*PrixPetitDej);
-    if (!(PrixTotal > 0))
+    if (!(PrixTotal > 0)) //Cette consition peremet de ne pas afficher ni un prix négatif ni un NaN
     {
       PrixTotal = "Erreur"
     }
@@ -42,48 +42,48 @@ return jour
 
 function validateForm()
 {
-  var prenom = document.getElementById("prenom");
-  var nom = document.getElementById("nom");
-  var nb_adulte = document.getElementById("NbAdulte");
-  var nb_enfant = document.getElementById("NbEnfant")
-  var dateDebut = document.getElementById("DateDebut");
-  var dateFin = document.getElementById("DateFin");
-  var mail = document.getElementById("mail");
+  var prenom = document.getElementById("prenom").value;
+  var nom = document.getElementById("nom").value;
+  var nb_adulte = document.getElementById("NbAdulte").value;
+  var nb_enfant = document.getElementById("NbEnfant").value;
+  var dateDebut = document.getElementById("DateDebut").value;
+  var dateFin = document.getElementById("DateFin").value;
+  var mail = document.getElementById("mail").value;
   var alerte = "! ERREUR !\n";
 
-    if (prenom.value == "") 
+    if (prenom == "") 
     {
       alerte += "Vous devez entrer un prenom\n";
     }
-    if (nom.value == "") 
+    if (nom == "") 
     {
       alerte += "Vous devez entrer un nom\n";
     }
-    if (mail.value == "") 
+    if (mail == "") 
     {
       alerte += "Vous devez entrer une adresse mail\n";
     }
-    if (nb_adulte.value <= 0)
+    if (nb_adulte <= 0)
     {
       alerte += "Le nombre d'adulte doit être supérieur à 0\n";
-      if (nb_enfant.value > 0)
+      if (nb_enfant > 0)
       {
         alerte += "Un enfant ne peut voyager seul\n";
       }
     }
-    if (nb_enfant.value < 0)
+    if (nb_enfant < 0)
       {
         alerte += "Le nombre d'enfant ne peut être négatif\n";
       }
-    if (dateDebut.value == "") 
+    if (dateDebut == "") 
     {
       alerte += "Vous devez rentrer une date de départ\n";
     }
-    if (dateFin.value == "") 
+    if (dateFin == "") 
     {
       alerte += "Vous devez rentrer une date de retour\n";
     }
-    if (dateDebut.value > dateFin.value)
+    if (dateDebut > dateFin)
     {
       alerte += "La date de départ doit être antérieur à la date de retour\n";
     }
@@ -124,4 +124,9 @@ function scrollFunction() {
 function topFunction() {
   document.body.scrollTop = 0; // For Safari
   document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}
+
+function Recap(){
+  var nom = document.getElementById("nom").value;
+  document.getElementById("recap").innerHTML = nom
 }
