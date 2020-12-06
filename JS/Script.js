@@ -21,6 +21,7 @@ const Rouen               = new Destination(35,"Rouen");
 let identifiant = 
 '{ "identifiant" : ["titouan_le_s","normandie_fan","darksasuke"],"mdp" : ["12345","jtm_norm","tropdark"]}';
 var DestinationTab = [Caen,Montfort,Cherbourg,Eu,Mont_Saint_Michel,Conteville,Tokyo,Montréal,Rouen];
+var DestinationTabStr = ["Caen","Montfort","Cherbourg","Eu","Mont Saint Michel","Conteville","Tokyo","Montréal","Rouen"];
 
 const PrixPetitDej = 12;
 
@@ -49,8 +50,9 @@ function topFunction() {
 
 // Page Acceuil :
 
-/* cette fonstion permet de rajouter un point d'interogation et un id au lien de reservation */
+
 function identification(){ 
+  /* cette fonstion permet de rajouter un point d'interogation et un id au lien de reservation */
   document.getElementById ("Caen").href='Reservation.html?id=0';
   document.getElementById ("Cherbourg").href='Reservation.html?id=2';
   document.getElementById ("Montfort").href='Reservation.html?id=1'; 
@@ -62,6 +64,20 @@ function identification(){
   document.getElementById ("Rouen").href='Reservation.html?id=8';
 }
 
+
+
+function ListeFiltre(){
+  //Affiche les destination corespondantes au filtres de l'acceuil
+  if (document.getElementById("PrixMin").value > DestinationTab[1].prix)
+  {
+    console.log("ok")
+  }
+  else
+  {
+    console.log("pas ok")
+  }
+  document.getElementById("Destination").innerHTML = DestinationTabStr;
+}
 //Page Reservation :
 
 function CalculPrixSejour()

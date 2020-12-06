@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
 	<head>
-        <script src="../JS/Changement_du_lien_avec_ID.js"></script>
         <script src="../JS/Script.js"></script>
 
         <link rel="stylesheet" href="../CSS/acceuil.css">
@@ -21,6 +20,17 @@
             </ul>
         </nav>
         <main>
+            <form name= "Reservationform" id = "myform" action= "Recapitulatif.html" onsubmit="return validateForm()" method="post" onchange="ListeFiltre()">
+                <fieldset>
+                    <legend>Filtres</legend>
+                    Prix Minimum :<br>
+                    <input type="number" id = "PrixMin"><br>
+                    Prix Maximum :<br>
+                    <input type="number" id = "PrixMax"><br>
+                </fieldset>
+                <p>Destination corespondantes aux filtres :</p>
+                <p id = "Destination"></p>
+            </form>
             <img src="../Images/Carte_Normandie2.png" alt="Duché de Normandie" usemap="#Carte_Normandie" class="Carte"/>
             <map name="Carte_Normandie">
             <area id= "Caen" onclick = "identification()" shape="rect" coords="244,138 254,150" href="Reservation.html" target="_blank" alt="Caen" />
