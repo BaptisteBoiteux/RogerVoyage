@@ -1,9 +1,12 @@
+// Général :
+
 class Destination {
   constructor(prix, titre) {
     this.prix 		 = prix;
     this.titre 		 = titre;
   }
 }
+
 const Caen                = new Destination(200,"Caen");
 const Montfort            = new Destination(30,"Montfort");
 const Cherbourg           = new Destination(50,"Cherbourg");
@@ -21,8 +24,50 @@ var DestinationTab = [Caen,Montfort,Cherbourg,Eu,Mont_Saint_Michel,Conteville,To
 
 const PrixPetitDej = 12;
 
+mybutton = document.getElementById("myBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) 
+  {
+    myBtn.style.display = "block";
+  } 
+  else 
+  {
+    myBtn.style.display = "none";
+  }
+}
+
+
+function topFunction() {
+  //Rammène en haut de la page 
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}
+
+// Page Acceuil :
+
+/* cette fonstion permet de rajouter un point d'interogation et un id au lien de reservation */
+function identification(){ 
+  document.getElementById ("Caen").href='Reservation.html?id=0';
+  document.getElementById ("Cherbourg").href='Reservation.html?id=2';
+  document.getElementById ("Montfort").href='Reservation.html?id=1'; 
+  document.getElementById ("Eu").href='Reservation.html?id=3';
+  document.getElementById ("Mont-Saint-Michel").href='Reservation.html?id=4';
+  document.getElementById ("Conteville").href='Reservation.html?id=5';
+  document.getElementById ("Tokyo").href='Reservation.html?id=6';
+  document.getElementById ("Montréal").href='Reservation.html?id=7';
+  document.getElementById ("Rouen").href='Reservation.html?id=8';
+}
+
+//Page Reservation :
+
 function CalculPrixSejour()
 {
+  /*Calcule le prix Totale du séjour
+  sortie : PrixTotal(number)*/
   var NbAdulte = document.getElementById("NbAdulte").value;
   var NbEnfant = document.getElementById("NbEnfant").value;
   var PetitDej = document.getElementById('PetitDej').checked;
@@ -36,16 +81,17 @@ function CalculPrixSejour()
   return PrixTotal
 }
 
-function Duree() 
-{
+function Duree() {
+  /*Calcule la différence de temps en jour entre deux dates
+  sortie : jour (number)*/
 var date1 = new Date(document.getElementById("DateDebut").value).getTime();
 var date2 = new Date(document.getElementById("DateFin").value).getTime();
 var jour = (date2 - date1) / (1000 * 60 * 60 * 24);
 return jour
 } 
 
-function validateForm()
-{
+function validateForm(){
+  //Vérification d'erreur pour le formulaire et changement de page vers Recapitulatif.html
   var prenom = document.getElementById("prenom").value;
   var nom = document.getElementById("nom").value;
   var nb_adulte = document.getElementById("NbAdulte").value;
@@ -104,32 +150,12 @@ function validateForm()
 }
 
 function reinitialiser_form() {
+  //Réinitialise le formulaire
   document.getElementById("myform").reset();
 }
 
-//Get the button:
-mybutton = document.getElementById("myBtn");
 
-// When the user scrolls down 20px from the top of the document, show the button
-window.onscroll = function() {scrollFunction()};
-
-function scrollFunction() {
-  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) 
-  {
-    myBtn.style.display = "block";
-  } 
-  else 
-  {
-    myBtn.style.display = "none";
-  }
-}
-
-// When the user clicks on the button, scroll to the top of the document
-function topFunction() {
-  document.body.scrollTop = 0; // For Safari
-  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-}
-
+//Page Connexion :
 
 
 function test_identité() {
@@ -164,7 +190,10 @@ function test_identité() {
   }
 }
 
+// Page Récapitulatif :
+
 function storage(){
+  //Stocke toutes les informations du formulaire
   localStorage.setItem('leprenom', document.getElementById("prenom").value);
   localStorage.setItem('lenom', document.getElementById("nom").value);
   localStorage.setItem('lemail', document.getElementById("mail").value);
@@ -185,6 +214,7 @@ function storage(){
 }
 
 function Recap(){
+  //Affiche toutes les informations du formulaire et genere un numéro de réservation
   localStorage.setItem('lenumresa',Math.floor(Math.random()*10**6).toString())
   document.getElementById("NumResa").innerHTML = localStorage.getItem('lenumresa');
   document.getElementById("prenom").innerHTML = localStorage.getItem('leprenom');
