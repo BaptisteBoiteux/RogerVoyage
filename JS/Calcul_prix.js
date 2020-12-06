@@ -23,16 +23,17 @@ const PrixPetitDej = 12;
 
 function CalculPrixSejour()
 {
-    var NbAdulte = document.getElementById("NbAdulte").value;
-    var NbEnfant = document.getElementById("NbEnfant").value;
-    var PetitDej = document.getElementById('PetitDej').checked;
-    let sejour_id = new URLSearchParams(window.location.search).get("id");
-    var PrixTotal = Duree()*(DestinationTab[sejour_id].prix*NbAdulte + DestinationTab[sejour_id].prix*0.4*NbEnfant + (NbAdulte + NbEnfant)*PetitDej*PrixPetitDej);
-    if (!(PrixTotal > 0)) //Cette consition peremet de ne pas afficher ni un prix négatif ni un NaN
-    {
-      PrixTotal = "Erreur"
-    }
-    document.getElementById("Prix").innerHTML = "Prix du Sejour : "+ PrixTotal;
+  var NbAdulte = document.getElementById("NbAdulte").value;
+  var NbEnfant = document.getElementById("NbEnfant").value;
+  var PetitDej = document.getElementById('PetitDej').checked;
+  let sejour_id = new URLSearchParams(window.location.search).get("id");
+  var PrixTotal = Duree()*(DestinationTab[sejour_id].prix*NbAdulte + DestinationTab[sejour_id].prix*0.4*NbEnfant + (NbAdulte + NbEnfant)*PetitDej*PrixPetitDej);
+  if (!(PrixTotal > 0)) //Cette condition peremet de ne pas afficher ni un prix négatif ni un NaN
+  {
+    PrixTotal = "Erreur"
+  }
+  document.getElementById("Prix").innerHTML = "Prix du Sejour : "+ PrixTotal.toString() +" €";
+  return PrixTotal
 }
 
 function Duree() 
@@ -66,7 +67,7 @@ function validateForm()
     {
       alerte += "Vous devez entrer une adresse mail\n";
     }
-    if (nb_adulte <= 0)
+    if (!(nb_adulte > 0))
     {
       alerte += "Le nombre d'adulte doit être supérieur à 0\n";
       if (nb_enfant > 0)
@@ -74,10 +75,10 @@ function validateForm()
         alerte += "Un enfant ne peut voyager seul\n";
       }
     }
-    if (nb_enfant < 0)
-      {
-        alerte += "Le nombre d'enfant ne peut être négatif\n";
-      }
+    if (!(nb_enfant > 0))
+    {
+      alerte += "Nombre d'enfants invalide\n"
+    }
     if (dateDebut == "") 
     {
       alerte += "Vous devez rentrer une date de départ\n";
@@ -129,10 +130,7 @@ function topFunction() {
   document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 }
 
-function Recap(){
-  var nom = document.getElementById("nom").value;
-  document.getElementById("recap").innerHTML = nom
-}
+
 
 function test_identité() {
   let connexion = (JSON.parse(identifiant));
@@ -164,4 +162,39 @@ function test_identité() {
   {
     console.log("ptdr t'est qui");
   }
+}
+
+function storage(){
+  localStorage.setItem('leprenom', document.getElementById("prenom").value);
+  localStorage.setItem('lenom', document.getElementById("nom").value);
+  localStorage.setItem('lemail', document.getElementById("mail").value);
+  localStorage.setItem('letel', document.getElementById("tel").value);
+  localStorage.setItem('leddebut', document.getElementById("DateDebut").value);
+  localStorage.setItem('leddfin', document.getElementById("DateFin").value);
+  localStorage.setItem('leNbAd', document.getElementById("NbAdulte").value);
+  localStorage.setItem('leNbEn', document.getElementById("NbEnfant").value);
+  if(document.getElementById("PetitDej").value)
+  {
+    localStorage.setItem('lePetitD',"Oui")
+  }
+  else
+  {
+    localStorage.setItem('lePetitD',"Non")
+  }
+  localStorage.setItem('lePrix', CalculPrixSejour().toString()+" €");
+}
+
+function Recap(){
+  localStorage.setItem('lenumresa',Math.floor(Math.random()*10**6).toString())
+  document.getElementById("NumResa").innerHTML = localStorage.getItem('lenumresa');
+  document.getElementById("prenom").innerHTML = localStorage.getItem('leprenom');
+  document.getElementById("nom").innerHTML = localStorage.getItem('lenom');
+  document.getElementById("mail").innerHTML = localStorage.getItem('lemail');
+  document.getElementById("tel").innerHTML = localStorage.getItem('letel');
+  document.getElementById("ddebut").innerHTML = localStorage.getItem('leddebut');
+  document.getElementById("ddfin").innerHTML = localStorage.getItem('leddfin');
+  document.getElementById("NbAdulte").innerHTML = localStorage.getItem('leNbAd');
+  document.getElementById("NbEnfant").innerHTML = localStorage.getItem('leNbEn');
+  document.getElementById("PetitDej").innerHTML = localStorage.getItem('lePetitD');
+  document.getElementById("Prix").innerHTML = localStorage.getItem('lePrix');
 }

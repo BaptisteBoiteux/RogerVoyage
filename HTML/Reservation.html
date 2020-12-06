@@ -21,7 +21,7 @@
                 </ul>
         </nav>
         <main>
-            <form name= "Reservationform" id = "myform" action= "Recapitulatif.html" onsubmit="return validateForm()" method="post" onchange ="CalculPrixSejour()" onchange ="Duree">
+            <form name= "Reservationform" id = "myform" action= "Recapitulatif.html" onsubmit="return validateForm()" method="post" onchange ="CalculPrixSejour(); Duree(); storage()">
                 <fieldset>
                     <legend>Formulaire de réservation</legend>
                     Prénom :<br>
@@ -31,7 +31,7 @@
                     Adresse mail :<br>
                     <input type="text" placeholder="votre adresse mail" id = "mail"><br>
                     Numéro de téléphone :<br>
-                    <input type="text" placeholder="+33"><br>
+                    <input type="text" placeholder="+33" id = "tel"><br>
                     Date de départ :<br>
                     <input type="date" id = "DateDebut"><br>
                     Date de retour :<br>
@@ -46,7 +46,7 @@
 
                     <input value="Reserver" onclick = "validateForm()" onclick="self.location.href='Recapitulatif.html'" type="submit"  href="Recapitulatif.html" ><br>
                     <input type="button" onclick ="reinitialiser_form()" value="Réinitialiser">
-                    <br><p id = "Prix" >Prix calculé</p><br>
+                    <br><p id = "Prix" ></p><br>
 
                 </fieldset>
             </form>
