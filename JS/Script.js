@@ -175,22 +175,28 @@ function reinitialiser_form() {
 //Page Connexion :
 
 
-
 window.onload = function affichage_connecté ()
 {
-  console.log (localStorage.getItem('connecté'));
-  if (localStorage.getItem('connecté')== true)
+  if( localStorage.getItem('connectée') == null )
   {
-    co.style.display = "none"
-    non_co.style.display = "block"
-  }
+    co.style.display = "none";
+    non_co.style.display = "block";
+  } 
   else
   {
-    co.style.display = "block"
-    non_co.style.display = "none"
+    console.log (localStorage.getItem('connectée'));
+    if (localStorage.getItem('connectée')== true)
+    {
+      co.style.display = "none"
+      non_co.style.display = "block"
+    }
+    else
+    {
+      co.style.display = "block"
+      non_co.style.display = "none"
+    }
   }
 }
-
 function test_identité() 
 {
   let connexion = (JSON.parse(identifiant));
@@ -209,7 +215,7 @@ function test_identité()
     }
     i++;
   }
-  if(localStorage.getItem('connecté').value);
+  if(connecté);
   {
     if(mot_de_passe != connexion.mdp[i_identifiant])
     {
@@ -219,7 +225,7 @@ function test_identité()
   if (connecté) 
   {
     document.location.href="accueil.html";
-    localStorage.setItem('connecté', true)
+    localStorage.setItem('connectée', true)
   }
   else
   {
