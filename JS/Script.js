@@ -1,5 +1,6 @@
 // Général :
 
+
 class Destination {
   constructor(prix, titre) {
     this.prix 		 = prix;
@@ -78,9 +79,10 @@ function ListeFiltre(){
 }
 
 function getTemp(){
-  var lien = "api.openweathermap.org/data/2.5/weather?q=Meyzieu&appid=5429722d0cef46c620c3f7d1c719b8dc";
+  var lien = "http://api.openweathermap.org/data/2.5/weather?q=Meyzieu&appid=5429722d0cef46c620c3f7d1c719b8dc&units=metric";
   var json = $.get(lien);
-  console.log(json);
+  var java = JSON.parse(json);
+  console.log(java);
 }
 
 //Page Reservation :
@@ -179,9 +181,7 @@ function reinitialiser_form() {
 //Page Connexion :
 
 
-<<<<<<< HEAD
-function test_identité() {
-=======
+
 
 window.onload = function affichage_connecté ()
 {
@@ -205,10 +205,7 @@ window.onload = function affichage_connecté ()
 	  }
   }
 }
-
-function test_identité() 
-{
->>>>>>> c3003b5f62ed2b03036a2bbfb6614b1ecb3d1b09
+function test_identité() {
   let connexion = (JSON.parse(identifiant));
   var identi = document.getElementById("identité").value;
   var mot_de_passe = document.getElementById("password").value;
