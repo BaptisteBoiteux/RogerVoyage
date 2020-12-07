@@ -182,53 +182,56 @@ function reinitialiser_form() {
 
 
 
-
 window.onload = function affichage_connecté ()
 {
-  if( typeof(localStorage.getItem('connecté')) == undefined)
+  if( localStorage.getItem('connectée') == null )
   {
-  	co.style.display = "block";
-    non_co.style.display = "none";
-  }	
+    co.style.display = "none";
+    non_co.style.display = "block";
+  } 
   else
   {
-	  console.log (localStorage.getItem('connecté'));
-	  if (localStorage.getItem('connecté')== true)
-	  {
-	    co.style.display = "none"
-	    non_co.style.display = "block"
-	  }
-	  else
-	  {
-	    co.style.display = "block"
-	    non_co.style.display = "none"
-	  }
+    console.log (localStorage.getItem('connectée'));
+    if (localStorage.getItem('connectée')== true)
+    {
+      co.style.display = "none"
+      non_co.style.display = "block"
+    }
+    else
+    {
+      co.style.display = "block"
+      non_co.style.display = "none"
+    }
+
   }
 }
+
 function test_identité() {
-  let connexion = (JSON.parse(identifiant));
+let connexion = (JSON.parse(identifiant));
   var identi = document.getElementById("identité").value;
   var mot_de_passe = document.getElementById("password").value;
-  var vrai_identité = false;
+  var connecté = false;
   var i=0;
-  while ( i < connexion.identifiant.length && vrai_identité == false)
+  while ( i < connexion.identifiant.length && connecté == false)
   {
     if (identi == connexion.identifiant[i])
     {
       var i_identifiant = i;
-      vrai_identité = true;
+      connecté = true;
     }
     i++;
   }
-  if(vrai_identité)
+  if(connecté);
   {
     if(mot_de_passe != connexion.mdp[i_identifiant])
     {
-      vrai_identité = false;
+      connecté = false;
     }
   }
-  if (vrai_identité) 
+  if (connecté) 
   {
+    document.location.href="accueil.html";
+    localStorage.setItem('connectée', true)
     console.log("bravo titou");
   }
   else
