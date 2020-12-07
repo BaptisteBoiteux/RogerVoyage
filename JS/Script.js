@@ -7,6 +7,7 @@ class Destination {
   }
 }
 
+ 
 const Caen                = new Destination(200,"Caen");
 const Montfort            = new Destination(30,"Montfort");
 const Cherbourg           = new Destination(50,"Cherbourg");
@@ -174,35 +175,56 @@ function reinitialiser_form() {
 //Page Connexion :
 
 
-function test_identité() {
+
+window.onload = function affichage_connecté ()
+{
+  console.log (localStorage.getItem('connecté'));
+  if (localStorage.getItem('connecté')== true)
+  {
+    co.style.display = "none"
+    non_co.style.display = "block"
+  }
+  else
+  {
+    co.style.display = "block"
+    non_co.style.display = "none"
+  }
+}
+
+function test_identité() 
+{
   let connexion = (JSON.parse(identifiant));
   var identi = document.getElementById("identité").value;
   var mot_de_passe = document.getElementById("password").value;
-  var vrai_identité = false;
+  var co = document.getElementById("co");
+  non_co = document.getElementById("non_co");
   var i=0;
-  while ( i < connexion.identifiant.length && vrai_identité == false)
+  var connecté = false;
+  while ( i < connexion.identifiant.length && connecté == false)
   {
     if (identi == connexion.identifiant[i])
     {
       var i_identifiant = i;
-      vrai_identité = true;
+      connecté = true;
     }
     i++;
   }
-  if(vrai_identité)
+  if(localStorage.getItem('connecté').value);
   {
     if(mot_de_passe != connexion.mdp[i_identifiant])
     {
-      vrai_identité = false;
+       connecté = false;
     }
   }
-  if (vrai_identité) 
+  if (connecté) 
   {
-    console.log("bravo titou");
+    document.location.href="accueil.html";
+    localStorage.setItem('connecté', true)
   }
   else
   {
-    console.log("ptdr t'est qui");
+    alert ("ptdr t'est qui");
+    return false;
   }
 }
 

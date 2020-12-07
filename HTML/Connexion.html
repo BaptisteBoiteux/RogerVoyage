@@ -1,37 +1,43 @@
 <!DOCTYPE html>
 <html lang="fr">
-	<head>
+    <head>
         <link rel="stylesheet" href="../CSS/acceuil.css">
         <script src="../JS/Script.js"></script>
         
-		<meta charset="UTF-8">
-		<title>Connexion</title>
-	</head>
+        <meta charset="UTF-8">
+        <title>Connexion</title>
+    </head>
 
-	<body>
+    <body>
         <header>
         </header>
         <nav>
             <ul>
                 <li><img src="../Images/Logo_RogerVoyage.png" width="80" height="auto" alt="Logo Roger Voyage"/></li>
                 <li><a href="accueil.html">Accueil</a></li>
-                <li><a href="Connexion.html">Connexion</a></li>
+                <li><a href="Panier.html">Panier</a></li>
                 <li><a href="A_propos.html">A propos & Contact</a></li>
-                </ul>
+                <li><a href="Connexion.html" id = "non_co">non_co</a></li>
+                <li><img src="../Images/avatar.jpg" id = "co" width = "50" height="auto" alt="logo_avatar">  </a></li>
+            </ul>
         </nav>
         <main>
-            Identifiant :<br>
-            <input type="text" id = "identité"><br>
-            Mot de passe :<br>
-            <input type="password" id = "password"><br>
-            <input type="button" value="Se Connecter" onclick = "test_identité()"><br>
-
+            <form name= "Connexionform" id = "coform" action= "accueil.html" onsubmit="return test_identité()" method="post">      
+                <fieldset>
+                    <legend>Conexion</legend>
+                    identifiant:<br>
+                    <input type="text" id = "identité"><br>
+                    Mot de passe :<br>
+                    <input type="password" id = "password"><br>
+                    <input type="button" value="Se Connecter" onclick="test_identité()" onclick = "self.location.href='accueil.html'" type="submit" href = "accueil"><br>
+                </fieldset>
+            </form>
         </main>
-		
+        
         
         <footer>
             <button onclick="topFunction()" id="myBtn" title="Go to top">Haut de page</button>
         </footer>
         
-	</body>
+    </body>
 </html>
