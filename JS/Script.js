@@ -179,7 +179,36 @@ function reinitialiser_form() {
 //Page Connexion :
 
 
+<<<<<<< HEAD
 function test_identité() {
+=======
+
+window.onload = function affichage_connecté ()
+{
+  if( typeof(localStorage.getItem('connecté')) == undefined)
+  {
+  	co.style.display = "block";
+    non_co.style.display = "none";
+  }	
+  else
+  {
+	  console.log (localStorage.getItem('connecté'));
+	  if (localStorage.getItem('connecté')== true)
+	  {
+	    co.style.display = "none"
+	    non_co.style.display = "block"
+	  }
+	  else
+	  {
+	    co.style.display = "block"
+	    non_co.style.display = "none"
+	  }
+  }
+}
+
+function test_identité() 
+{
+>>>>>>> c3003b5f62ed2b03036a2bbfb6614b1ecb3d1b09
   let connexion = (JSON.parse(identifiant));
   var identi = document.getElementById("identité").value;
   var mot_de_passe = document.getElementById("password").value;
