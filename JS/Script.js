@@ -7,7 +7,6 @@ class Destination {
   }
 }
 
- 
 const Caen                = new Destination(200,"Caen");
 const Montfort            = new Destination(30,"Montfort");
 const Cherbourg           = new Destination(50,"Cherbourg");
@@ -69,16 +68,21 @@ function identification(){
 
 function ListeFiltre(){
   //Affiche les destination corespondantes au filtres de l'acceuil
-  if (document.getElementById("PrixMin").value > DestinationTab[1].prix)
+  var destFiltre = "";
+  for (let i = 0; i < DestinationTab.length ; i++)
+  if ((document.getElementById("PrixMin").value <= DestinationTab[i].prix)&&(document.getElementById("PrixMax").value >= DestinationTab[i].prix) )
   {
-    console.log("ok")
+    destFiltre += DestinationTab[i].titre+", "
   }
-  else
-  {
-    console.log("pas ok")
-  }
-  document.getElementById("Destination").innerHTML = DestinationTabStr;
+  document.getElementById("Destination").innerHTML = destFiltre;
 }
+
+function getTemp(){
+  var lien = "api.openweathermap.org/data/2.5/weather?q=Meyzieu&appid=5429722d0cef46c620c3f7d1c719b8dc";
+  var json = $.get(lien);
+  console.log(json);
+}
+
 //Page Reservation :
 
 function CalculPrixSejour()
@@ -175,6 +179,7 @@ function reinitialiser_form() {
 //Page Connexion :
 
 
+
 window.onload = function affichage_connecté ()
 {
   if( localStorage.getItem('connectée') == null )
@@ -195,6 +200,7 @@ window.onload = function affichage_connecté ()
       co.style.display = "block"
       non_co.style.display = "none"
     }
+
   }
 }
 function test_identité() 
@@ -202,10 +208,8 @@ function test_identité()
   let connexion = (JSON.parse(identifiant));
   var identi = document.getElementById("identité").value;
   var mot_de_passe = document.getElementById("password").value;
-  var co = document.getElementById("co");
-  non_co = document.getElementById("non_co");
-  var i=0;
   var connecté = false;
+  var i=0;
   while ( i < connexion.identifiant.length && connecté == false)
   {
     if (identi == connexion.identifiant[i])
@@ -219,18 +223,18 @@ function test_identité()
   {
     if(mot_de_passe != connexion.mdp[i_identifiant])
     {
-       connecté = false;
+      connecté = false;
     }
   }
   if (connecté) 
   {
     document.location.href="accueil.html";
     localStorage.setItem('connectée', true)
+    console.log("bravo titou");
   }
   else
   {
-    alert ("ptdr t'est qui");
-    return false;
+    console.log("ptdr t'est qui");
   }
 }
 
