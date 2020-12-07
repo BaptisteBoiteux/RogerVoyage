@@ -18,8 +18,6 @@ const Montréal            = new Destination(200,"Montréal");
 const Rouen               = new Destination(35,"Rouen");
 
 
-let identifiant = 
-'{ "identifiant" : ["titouan_le_s","normandie_fan","darksasuke"],"mdp" : ["12345","jtm_norm","tropdark"]}';
 var DestinationTab = [Caen,Montfort,Cherbourg,Eu,Mont_Saint_Michel,Conteville,Tokyo,Montréal,Rouen];
 var DestinationTabStr = ["Caen","Montfort","Cherbourg","Eu","Mont Saint Michel","Conteville","Tokyo","Montréal","Rouen"];
 
@@ -182,6 +180,8 @@ function reinitialiser_form() {
 
 window.onload = function affichage_connecté ()
 {
+  // cette fonction detecté si une personne est connecter ou pas.
+  console.log (localStorage.getItem('connectée'));
   if( localStorage.getItem('connectée') == null )
   {
     co.style.display = "none";
@@ -189,22 +189,23 @@ window.onload = function affichage_connecté ()
   } 
   else
   {
-    console.log (localStorage.getItem('connectée'));
-    if (localStorage.getItem('connectée')== true)
-    {
-      co.style.display = "none"
-      non_co.style.display = "block"
-    }
-    else
+    if (localStorage.getItem('connectée') == 1)
     {
       co.style.display = "block"
       non_co.style.display = "none"
+    }
+    else
+    {
+      co.style.display = "none"
+      non_co.style.display = "block"
     }
 
   }
 }
 function test_identité() 
 {
+  let identifiant = 
+  '{ "identifiant" : ["titouan_le_s","normandie_fan","darksasuke"],"mdp" : ["12345","jtm_norm","tropdark"]}';
   let connexion = (JSON.parse(identifiant));
   var identi = document.getElementById("identité").value;
   var mot_de_passe = document.getElementById("password").value;
@@ -229,14 +230,20 @@ function test_identité()
   if (connecté) 
   {
     document.location.href="accueil.html";
-    localStorage.setItem('connectée', true)
-    console.log("bravo titou");
+    localStorage.setItem('connectée', 1);
   }
   else
   {
-    console.log("ptdr t'est qui");
+    alert ("ptdr t'est qui");
   }
 }
+
+function deconnection()
+{
+  localStorage.setItem('connectée', 0);
+  console.log (localStorage.getItem('connectée'));
+}
+
 
 // Page Récapitulatif :
 
