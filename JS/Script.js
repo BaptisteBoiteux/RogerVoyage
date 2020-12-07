@@ -81,8 +81,8 @@ function ListeFiltre(){
 function getTemp(){
   var lien = "http://api.openweathermap.org/data/2.5/weather?q=Meyzieu&appid=5429722d0cef46c620c3f7d1c719b8dc&units=metric";
   var json = $.get(lien);
-  var java = JSON.parse(json);
-  console.log(java);
+  console.log(json);
+  console.log(json.responseJSON)
 }
 
 //Page Reservation :
@@ -265,7 +265,7 @@ function storage(){
 
 function Recap(){
   //Affiche toutes les informations du formulaire et genere un numéro de réservation
-  localStorage.setItem('lenumresa',Math.floor(Math.random()*10**6).toString())
+  localStorage.setItem('lenumresa',Math.floor(Math.random()*10**6).toString());
   document.getElementById("NumResa").innerHTML = localStorage.getItem('lenumresa');
   document.getElementById("prenom").innerHTML = localStorage.getItem('leprenom');
   document.getElementById("nom").innerHTML = localStorage.getItem('lenom');
