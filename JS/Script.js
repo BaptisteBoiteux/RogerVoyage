@@ -1,5 +1,6 @@
 // Général :
 
+
 class Destination {
   constructor(prix, titre) {
     this.prix 		 = prix;
@@ -76,9 +77,10 @@ function ListeFiltre(){
 }
 
 function getTemp(){
-  var lien = "api.openweathermap.org/data/2.5/weather?q=Meyzieu&appid=5429722d0cef46c620c3f7d1c719b8dc";
+  var lien = "http://api.openweathermap.org/data/2.5/weather?q=Meyzieu&appid=5429722d0cef46c620c3f7d1c719b8dc&units=metric";
   var json = $.get(lien);
   console.log(json);
+  console.log(json.responseJSON)
 }
 
 //Page Reservation :
@@ -202,6 +204,7 @@ window.onload = function affichage_connecté ()
 
   }
 }
+
 function test_identité() 
 {
   let identifiant = 
@@ -270,7 +273,7 @@ function storage(){
 
 function Recap(){
   //Affiche toutes les informations du formulaire et genere un numéro de réservation
-  localStorage.setItem('lenumresa',Math.floor(Math.random()*10**6).toString())
+  localStorage.setItem('lenumresa',Math.floor(Math.random()*10**6).toString());
   document.getElementById("NumResa").innerHTML = localStorage.getItem('lenumresa');
   document.getElementById("prenom").innerHTML = localStorage.getItem('leprenom');
   document.getElementById("nom").innerHTML = localStorage.getItem('lenom');
