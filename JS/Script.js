@@ -2,27 +2,27 @@
 
 
 class Destination {
-  constructor(prix, titre) {
+  constructor(prix, titre,temperature) {
     this.prix 		 = prix;
     this.titre 		 = titre;
+    this.temperature = temperature;
   }
 }
 
-const Caen                = new Destination(200,"Caen");
-const Montfort            = new Destination(30,"Montfort");
-const Cherbourg           = new Destination(50,"Cherbourg");
-const Eu                  = new Destination(20,"Eu");
-const Mont_Saint_Michel   = new Destination(1000,"Mont-Saint-Michel");
-const Conteville          = new Destination(45,"Conteville");
-const Tokyo               = new Destination(300,"Tokyo");
-const Montréal            = new Destination(200,"Montréal");
-const Rouen               = new Destination(35,"Rouen");
+let Caen                = new Destination(200,"Caen",0);
+var Montfort            = new Destination(30,"Montfort",0);
+var Cherbourg           = new Destination(50,"Cherbourg",0);
+let Eu                  = new Destination(20,"Eu",0);
+var Mont_Saint_Michel   = new Destination(1000,"Mont-Saint-Michel",0);
+var Conteville          = new Destination(45,"Conteville",0);
+var Tokyo               = new Destination(300,"Tokyo",0);
+var Montréal            = new Destination(200,"Montréal",0);
+var Rouen               = new Destination(35,"Rouen",0);
 
 
 let identifiant = 
 '{ "identifiant" : ["titouan_le_s","normandie_fan","darksasuke"],"mdp" : ["12345","jtm_norm","tropdark"]}';
-var DestinationTab = [Caen,Montfort,Cherbourg,Eu,Mont_Saint_Michel,Conteville,Tokyo,Montréal,Rouen];
-var DestinationTabStr = ["Caen","Montfort","Cherbourg","Eu","Mont Saint Michel","Conteville","Tokyo","Montréal","Rouen"];
+let DestinationTab = [Caen,Montfort,Cherbourg,Mont_Saint_Michel,Conteville,Rouen,Tokyo,Montréal,Eu];
 
 const PrixPetitDej = 12;
 
@@ -70,19 +70,40 @@ function identification(){
 function ListeFiltre(){
   //Affiche les destination corespondantes au filtres de l'acceuil
   var destFiltre = "";
-  for (let i = 0; i < DestinationTab.length ; i++)
+  for (let i = 0; i < DestinationTab.length ; i++){
   if ((document.getElementById("PrixMin").value <= DestinationTab[i].prix)&&(document.getElementById("PrixMax").value >= DestinationTab[i].prix) )
   {
     destFiltre += DestinationTab[i].titre+", "
+  }
   }
   document.getElementById("Destination").innerHTML = destFiltre;
 }
 
 function getTemp(){
-  var lien = "http://api.openweathermap.org/data/2.5/weather?q=Meyzieu&appid=5429722d0cef46c620c3f7d1c719b8dc&units=metric";
-  var json = $.get(lien);
-  console.log(json);
-  console.log(json.responseJSON)
+  for (let i = 0; i < DestinationTab.length - 1 ; i++){
+    fetch("http://api.openweathermap.org/data/2.5/weather?q="+DestinationTab[i].titre+"&appid=5429722d0cef46c620c3f7d1c719b8dc&units=metric")
+      .then(function(response) {
+          return response.json();
+      })
+      .then(function(json) {
+        DestinationTab[i].temperature = json.main.temp
+      })
+  } 
+  //On est obligé de séparer le cas de Eu car l'api ne reconnait la ville que si on rajoute ,fr après le nom
+  fetch("http://api.openweathermap.org/data/2.5/weather?q=EU,fr&appid=5429722d0cef46c620c3f7d1c719b8dc&units=metric")
+      .then(function(response) {
+          return response.json();
+      })
+      .then(function(json) {
+        DestinationTab[8].temperature = json.main.temp
+        console.log(DestinationTab[8].temperature)
+      })
+}
+
+function printe(){
+  console.log(DestinationTab[8].titre)
+  console.log(DestinationTab[8].prix)
+  console.log(DestinationTab[8].temperature)
 }
 
 //Page Reservation :
