@@ -7,8 +7,7 @@
 		<meta charset="UTF-8">
 		<title>RogerVoyage</title>
 	</head>
-
-	<body onload="getTemp(); printe()">
+    <body onload="getTemp(); printe();affichage_connecté()">
         <header>
         </header>
         <nav>
@@ -21,7 +20,7 @@
                         <div class="dropdown">
                             <button onclick="deconnection()"><img src="../Images/avatar.jpg"  width = "50" height="auto" alt="logo_avatar">  </button>
                             <div class = "dropdown-content">
-                                <b href = "accueil.html" onclick="deconnection()"> déconection</b>
+                                <a href = "accueil.html" > <button onclick="deconnection()" >deconexion</button> </a>
                             </div>
                         </div>
                     </div>

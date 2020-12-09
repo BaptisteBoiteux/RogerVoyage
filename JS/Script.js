@@ -203,10 +203,9 @@ function reinitialiser_form() {
 
 
 
-window.onload = function affichage_connecté ()
+function affichage_connecté ()
 {
-  // cette fonction detecté si une personne est connecter ou pas.
-  console.log (localStorage.getItem('connectée'));
+  // cette fonction detecté si une personne est connecter ou pas. 
   if( localStorage.getItem('connectée') == null )
   {
     co.style.display = "none";

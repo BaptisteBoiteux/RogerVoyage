@@ -39,7 +39,6 @@ nav a:hover{
   background-color: rgb(255, 255, 255);
   color: black
 }
-
 .dropdown {
   float: left;
   overflow: hidden;
@@ -91,6 +90,8 @@ nav a:hover{
 .dropdown:hover .dropdown-content {
   display: block;
 }
+
+
 
 #myBtn {
   display: none; /* Hidden by default */
