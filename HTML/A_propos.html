@@ -16,8 +16,16 @@
                 <li><a href="accueil.html">Accueil</a></li>
                 <li><a href="A_propos.html">A propos & Contact</a></li>
                 <li><a href="Connexion.html" id = "non_co">non_co</a></li>
-                <li><img src="../Images/avatar.jpg" id = "co" width = "50" height="auto" alt="logo_avatar">  </a></li>
-            </ul>
+                <li><div class="navbar" id = "co">
+                    <div class="dropdown">
+                        <button onclick="deconnection()"><img src="../Images/avatar.jpg"  width = "50" height="auto" alt="logo_avatar">  </button>
+                        <div class = "dropdown-content">
+                            <a href = "accueil.html" > <button onclick="deconnection()" >deconexion</button> </a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
         </nav>
         <main>
             <br>

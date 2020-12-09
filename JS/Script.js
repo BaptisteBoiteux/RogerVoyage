@@ -108,6 +108,13 @@ function printe(){
 
 //Page Reservation :
 
+function description()
+{
+  //donne une description pour la page réservations
+  let sejour_id = new URLSearchParams(window.location.search).get("id");  
+  document.getElementById("description").innerHTML="Vous avez reserver la ville de "+DestinationTab[sejour_id].titre+", le prix de base pour une journée est de "+DestinationTab[sejour_id].prix+"€ avec une température ambiante de "+DestinationTab[sejour_id].temperature+"°."; 
+}
+
 function CalculPrixSejour()
 {
   /*Calcule le prix Totale du séjour
