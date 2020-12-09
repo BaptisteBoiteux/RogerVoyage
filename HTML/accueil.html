@@ -8,7 +8,7 @@
 		<title>RogerVoyage</title>
 	</head>
 
-	<body onload="getTemp(); printe()">
+	<body onload="getTemp()">
         <header>
         </header>
         <nav>
@@ -30,7 +30,7 @@
             </ul>
         </nav>
         <main>
-            <form name= "Reservationform" id = "myform" action= "Recapitulatif.html" onsubmit="return validateForm()" method="post" onchange="ListeFiltre()">
+            <form name= "Reservationform" id = "myform" action= "Recapitulatif.html" onsubmit="return validateForm()" method="post" onchange="ListeFiltre(); printe()">
                 <fieldset>
                     <legend>Filtres</legend>
                     Prix Minimum :<br>
