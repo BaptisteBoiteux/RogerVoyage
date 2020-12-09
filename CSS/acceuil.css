@@ -114,5 +114,6 @@ nav a:hover{
 }
 
 #Caen{
+  visibility : hidden;
   background-color: #555;
 }
