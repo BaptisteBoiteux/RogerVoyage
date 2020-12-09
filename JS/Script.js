@@ -9,10 +9,10 @@ class Destination {
   }
 }
 
-let Caen                = new Destination(200,"Caen",0);
+var Caen                = new Destination(200,"Caen",0);
 var Montfort            = new Destination(30,"Montfort",0);
 var Cherbourg           = new Destination(50,"Cherbourg",0);
-let Eu                  = new Destination(20,"Eu",0);
+var Eu                  = new Destination(20,"Eu",0);
 var Mont_Saint_Michel   = new Destination(1000,"Mont-Saint-Michel",0);
 var Conteville          = new Destination(45,"Conteville",0);
 var Tokyo               = new Destination(300,"Tokyo",0);
@@ -86,7 +86,8 @@ function getTemp(){
           return response.json();
       })
       .then(function(json) {
-        DestinationTab[i].temperature = json.main.temp
+        DestinationTab[i].temperature = json.main.temp;
+        console.log(json)
       })
   } 
   //On est obligé de séparer le cas de Eu car l'api ne reconnait la ville que si on rajoute ,fr après le nom
@@ -96,14 +97,13 @@ function getTemp(){
       })
       .then(function(json) {
         DestinationTab[8].temperature = json.main.temp
-        console.log(DestinationTab[8].temperature)
       })
 }
 
 function printe(){
-  console.log(DestinationTab[8].titre)
-  console.log(DestinationTab[8].prix)
-  console.log(DestinationTab[8].temperature)
+  console.log(DestinationTab[0].titre)
+  console.log(DestinationTab[0].prix)
+  console.log(DestinationTab[0].temperature)
 }
 
 //Page Reservation :
