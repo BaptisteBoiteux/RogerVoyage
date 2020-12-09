@@ -6,7 +6,7 @@
 		<meta charset="UTF-8">
 		<title>Reservation</title>
 	</head>
-	<body onload="getTemp();affichage_connecté();description()">
+	<body onload="getTemp();affichage_connecté()">
         <header >
         </header>
         <nav >
@@ -27,28 +27,28 @@
         </ul>
         </nav>
         <main>
-            <h1 id="description"> description voyage </h1>
-            <form name= "Reservationform" id = "myform" action= "Recapitulatif.html" onsubmit="return validateForm()" method="post" onchange ="CalculPrixSejour(); Duree(); storage()">
+            <h1 id="description"></h1>
+            <form name= "Reservationform" id = "myform" action= "Recapitulatif.html" onsubmit="return validateForm()" method="post" onchange ="CalculPrixSejour(); Duree();storage()" onmouseover="description()"><!--Ici on met onmouseover pour desciption afin que la temperature est le temps de se mettre à jour-->
                 <fieldset>
                     <legend>Formulaire de réservation</legend>
-                    Prénom :<br>
-                    <input type="text" placeholder="votre prénom" id = "prenom"><br>
-                    Nom :<br>
-                    <input type="text" placeholder="votre nom" id = "nom"><br>
-                    Adresse mail :<br>
-                    <input type="text" placeholder="votre adresse mail" id = "mail"><br>
-                    Numéro de téléphone :<br>
-                    <input type="text" placeholder="+33" id = "tel"><br>
-                    Date de départ :<br>
-                    <input type="date" id = "DateDebut"><br>
-                    Date de retour :<br>
-                    <input type="date" id = "DateFin"><br>
-                    Nombre d'adulte :<br>
-                    <input type="number" id = "NbAdulte"><br>
-                    Nombre d'enfant (-12 ans) :<br>
-                    <input type="number" id = "NbEnfant"><br>
-                    <input type="checkbox" id = "PetitDej">Petit déjeuner<br>
-                    Demande de renseignement:<br>
+                    <p>Prénom :</p>
+                    <input type="text" placeholder="votre prénom" id = "prenom">
+                    <p>Nom :</p>
+                    <input type="text" placeholder="votre nom" id = "nom">
+                    <p>Adresse mail :</p>
+                    <input type="text" placeholder="votre adresse mail" id = "mail">
+                    <p>Numéro de téléphone :</p>
+                    <input type="text" placeholder="+33" id = "tel">
+                    <p>Date de départ :</p>
+                    <input type="date" id = "DateDebut">
+                    <p>Date de retour :</p>
+                    <input type="date" id = "DateFin">
+                    <p>Nombre d'adulte :</p>
+                    <input type="number" id = "NbAdulte">
+                    <p>Nombre d'enfant (-12 ans) :</p>
+                    <input type="number" id = "NbEnfant"><br><br>
+                    <input type="checkbox" id = "PetitDej">Petit déjeuner
+                    <p>Demande de renseignement:</p>
                     <textarea  style="width: 100%; height:200px"  >Bonjour, je souhaiterais obtenir des renseignements sur</textarea>
 
                     <input value="Reserver" onclick = "validateForm()" onclick="self.location.href='Recapitulatif.html'" type="submit"  href="Recapitulatif.html" ><br>
