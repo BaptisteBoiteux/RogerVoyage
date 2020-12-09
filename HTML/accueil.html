@@ -7,7 +7,7 @@
 		<meta charset="UTF-8">
 		<title>RogerVoyage</title>
 	</head>
-    <body onload="getTemp(); printe();affichage_connecté()">
+    <body onload="getTemp(); affichage_connecté()">
         <header>
         </header>
         <nav>
@@ -29,13 +29,14 @@
             </ul>
         </nav>
         <main>
-            <form name= "Reservationform" id = "myform" action= "Recapitulatif.html" onsubmit="return validateForm()" method="post" onchange="ListeFiltre(); printe()">
+            <form name= "Reservationform" id = "myform" action= "Recapitulatif.html" onsubmit="return validateForm()" method="post" onchange="ListeFiltre()">
                 <fieldset>
                     <legend>Filtres</legend>
-                    Prix Minimum :<br>
-                    <input type="number" id = "PrixMin"><br>
-                    Prix Maximum :<br>
-                    <input type="number" id = "PrixMax"><br>
+                    <p>Prix Minimum :</p>
+                    <input type="number" id = "PrixMin">
+                    <p>Prix Maximum :</p>
+                    <input type="number" id = "PrixMax"><br><br>
+                    <input type="checkbox" id = "Animaux">Animaux acceptés<br>
                 </fieldset>
                 <p>Destination corespondantes aux filtres :</p>
                 <p id = "Destination"></p>
@@ -43,14 +44,14 @@
             <img src="../Images/Carte_Normandie2.png" alt="Duché de Normandie" usemap="#Carte_Normandie" class="Carte"/>
             <map name="Carte_Normandie">
             <area id= "Caen" onclick = "identification()" shape="rect" coords="244,138 254,150" href="Reservation.html" target="_blank" alt="Caen" />
-            <area id= Cherbourg onclick = "identification()" shape="rect" coords="128,82,114,71" href="Reservation.html" target="_blank" alt="Cherbourg" />
-            <area id= Montfort onclick = "identification()" shape="rect" coords="343,120,357,130" href="Reservation.html" target="blank" alt="Montfort" />
-            <area id= Eu onclick = "identification()" shape="rect" coords="425,4,439,14" href="Reservation.html" target="blank" alt="Eu" />
-            <area id= Mont-Saint-Michel onclick = "identification()" shape="rect" coords="113,219,127,230" href="Reservation.html" target="blank" alt="Mont-Saint-Michel" />
-            <area id= Conteville onclick = "identification()" shape="rect" coords="320,100,328,114" href="Reservation.html" target="blank" alt="Conteville" />
-            <area id= Tokyo onclick = "identification()" shape="rect" coords="37,51,64,62" href="Reservation.html" target="blank" alt="Tokyo" />
-            <area id= Montréal onclick = "identification()" shape="rect" coords="5,84,32,109" href="Reservation.html" target="blank" alt="Montréal" />
-            <area id= Rouen onclick = "identification()" shape="rect" coords="383,98,402,115" href="Reservation.html" target="blank" alt="Rouen" />
+            <area id= "Cherbourg" onclick = "identification()" shape="rect" coords="128,82,114,71" href="Reservation.html" target="_blank" alt="Cherbourg" />
+            <area id= "Montfort" onclick = "identification()" shape="rect" coords="343,120,357,130" href="Reservation.html" target="blank" alt="Montfort" />
+            <area id= "Eu" onclick = "identification()" shape="rect" coords="425,4,439,14" href="Reservation.html" target="blank" alt="Eu" />
+            <area id= "Mont-Saint-Michel" onclick = "identification()" shape="rect" coords="113,219,127,230" href="Reservation.html" target="blank" alt="Mont-Saint-Michel" />
+            <area id= "Conteville" onclick = "identification()" shape="rect" coords="320,100,328,114" href="Reservation.html" target="blank" alt="Conteville" />
+            <area id= "Tokyo" onclick = "identification()" shape="rect" coords="37,51,64,62" href="Reservation.html" target="blank" alt="Tokyo" />
+            <area id= "Montréal" onclick = "identification()" shape="rect" coords="5,84,32,109" href="Reservation.html" target="blank" alt="Montréal" />
+            <area id= "Rouen" onclick = "identification()" shape="rect" coords="383,98,402,115" href="Reservation.html" target="blank" alt="Rouen" />
             <! https://www.image-map.net/ pour avoir les coordonées>
             </map>
             <br>

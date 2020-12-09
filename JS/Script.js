@@ -2,22 +2,23 @@
 
 
 class Destination {
-  constructor(prix, titre,temperature) {
+  constructor(prix, titre,temperature,animaux) {
     this.prix 		 = prix;
     this.titre 		 = titre;
     this.temperature = temperature;
+    this.animaux = animaux;
   }
 }
 
-var Caen                = new Destination(200,"Caen",0);
-var Montfort            = new Destination(30,"Montfort",0);
-var Cherbourg           = new Destination(50,"Cherbourg",0);
-var Eu                  = new Destination(20,"Eu",0);
-var Mont_Saint_Michel   = new Destination(1000,"Mont-Saint-Michel",0);
-var Conteville          = new Destination(45,"Conteville",0);
-var Tokyo               = new Destination(300,"Tokyo",0);
-var Montréal            = new Destination(200,"Montréal",0);
-var Rouen               = new Destination(35,"Rouen",0);
+var Caen                = new Destination(200,"Caen",0,false);
+var Montfort            = new Destination(32,"Montfort",0,false);
+var Cherbourg           = new Destination(50,"Cherbourg",0,false);
+var Eu                  = new Destination(2000,"Eu",0,true);
+var Mont_Saint_Michel   = new Destination(666,"Mont-Saint-Michel",0,true);
+var Conteville          = new Destination(123,"Conteville",0,false);
+var Tokyo               = new Destination(77,"Tokyo",0,true);
+var Montréal            = new Destination(1642,"Montréal",0,true);
+var Rouen               = new Destination(177,"Rouen",0,false);
 
 
 let identifiant = 
@@ -70,24 +71,28 @@ function identification(){
 function ListeFiltre(){
   //Affiche les destination corespondantes au filtres de l'acceuil
   var destFiltre = "";
+  var prixMin = document.getElementById("PrixMin").value;
+  var prixMax = document.getElementById("PrixMax").value;
+  var animaux = document.getElementById("Animaux").checked;
   for (let i = 0; i < DestinationTab.length ; i++){
-  if ((document.getElementById("PrixMin").value <= DestinationTab[i].prix)&&(document.getElementById("PrixMax").value >= DestinationTab[i].prix) )
+  if ((prixMin <= DestinationTab[i].prix)&&(prixMax >= DestinationTab[i].prix)&&(animaux == DestinationTab[i].animaux))
   {
-    destFiltre += DestinationTab[i].titre+", "
+    destFiltre += DestinationTab[i].titre+", ";
   }
   }
+  animaux.display = "block";
   document.getElementById("Destination").innerHTML = destFiltre;
 }
 
 function getTemp(){
-  for (let i = 0; i < DestinationTab.length - 1 ; i++){
+  //récupère la temperature de chaque destination grâce à une API et la stocke dans la classe corespondante
+  for (let i = 0; i < DestinationTab.length - 1; i++){
     fetch("http://api.openweathermap.org/data/2.5/weather?q="+DestinationTab[i].titre+"&appid=5429722d0cef46c620c3f7d1c719b8dc&units=metric")
       .then(function(response) {
           return response.json();
       })
       .then(function(json) {
         DestinationTab[i].temperature = json.main.temp;
-        console.log(json)
       })
   } 
   //On est obligé de séparer le cas de Eu car l'api ne reconnait la ville que si on rajoute ,fr après le nom
@@ -100,11 +105,6 @@ function getTemp(){
       })
 }
 
-function printe(){
-  console.log(DestinationTab[0].titre)
-  console.log(DestinationTab[0].prix)
-  console.log(DestinationTab[0].temperature)
-}
 
 //Page Reservation :
 
