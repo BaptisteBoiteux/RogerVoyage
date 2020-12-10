@@ -30,7 +30,7 @@
             </ul>
         </nav>
         <main>
-            <form name= "Reservationform" id = "myform" action= "Recapitulatif.html" onsubmit="return validateForm()" method="post" onchange="ListeFiltre()">
+            <form id = "myform" method="post">
                 <fieldset>
                     <legend>Filtres</legend>
                     <p>Prix Minimum :</p>
@@ -38,8 +38,10 @@
                     <p>Prix Maximum :</p>
                     <input type="number" id = "PrixMax"><br><br>
                     <input type="checkbox" id = "Animaux">Animaux acceptés<br>
+                    <input value="Appliquer" type="button" onclick ="ListeFiltre()" ><br>
+                    <input value="Réinitialiser" type="button" onclick = "reinitialiser_form();self.location.href='accueil.html'">
                 </fieldset>
-                <p>Destination corespondantes aux filtres :</p>
+                <p>D'après votre filtre vous ne pouvez plus cliquer sur :</p>
                 <p id = "Destination"></p>
             </form>
             <img src="../Images/Carte_Normandie2.png" alt="Duché de Normandie" usemap="#Carte_Normandie" class="Carte"/>

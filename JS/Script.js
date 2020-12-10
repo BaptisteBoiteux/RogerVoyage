@@ -74,15 +74,23 @@ function ListeFiltre(){
   var prixMin = document.getElementById("PrixMin").value;
   var prixMax = document.getElementById("PrixMax").value;
   var animaux = document.getElementById("Animaux").checked;
-  for (let i = 0; i < DestinationTab.length ; i++){
-  if ((prixMin <= DestinationTab[i].prix)&&(prixMax >= DestinationTab[i].prix)&&(animaux == DestinationTab[i].animaux))
-  {
-    destFiltre += DestinationTab[i].titre+", ";
+  if(prixMin >= prixMax){
+    alert("Le prix minimum doit être inférieur au prix maximum");
   }
-  }
-  animaux.display = "block";
+  else{
+    for (let i = 0; i < DestinationTab.length ; i++){
+      if (!((prixMin <= DestinationTab[i].prix)&&(prixMax >= DestinationTab[i].prix)&&(animaux == DestinationTab[i].animaux)))
+      {
+        destFiltre += DestinationTab[i].titre+", ";
+        var titre = DestinationTab[i].titre;
+        var destRefusee = document.getElementById(titre);
+        destRefusee.remove();
+      }
+    }
+  } 
   document.getElementById("Destination").innerHTML = destFiltre;
 }
+
 
 function getTemp(){
   //récupère la temperature de chaque destination grâce à une API et la stocke dans la classe corespondante
@@ -126,10 +134,10 @@ function CalculPrixSejour()
   var PrixTotal = Duree()*(DestinationTab[sejour_id].prix*NbAdulte + DestinationTab[sejour_id].prix*0.4*NbEnfant + (NbAdulte + NbEnfant)*PetitDej*PrixPetitDej);
   if (!(PrixTotal > 0)) //Cette condition peremet de ne pas afficher ni un prix négatif ni un NaN
   {
-    PrixTotal = "Erreur"
+    PrixTotal = "Erreur";
   }
   document.getElementById("Prix").innerHTML = "Prix du Sejour : "+ PrixTotal.toString() +" €";
-  return PrixTotal
+  return PrixTotal;
 }
 
 function Duree() {
@@ -194,7 +202,7 @@ function validateForm(){
     }
     else
     {
-      document.location.href="Recapitulatif.html"
+      document.location.href="Recapitulatif.html";
     }
     
     return false;
