@@ -7,7 +7,7 @@
 		<meta charset="UTF-8">
 		<title>RogerVoyage</title>
 	</head>
-    <body onload="getTemp();affichage_connecté()">
+    <body onload="getTemp();affichage_connecté();init()">
 
         <header>
         </header>
@@ -16,7 +16,7 @@
                 <li><img src="../Images/Logo_RogerVoyage.png" width="80" height="auto" alt="Logo Roger Voyage"/></li>
                 <li><a href="accueil.html">Accueil</a></li>
                 <li><a href="A_propos.html">A propos & Contact</a></li>
-                <li><a href="Connexion.html" id = "non_co">non_co</a></li>
+                <li><a href="Connexion.html" id = "non_co">connexion</a></li>
                 <li><div class="navbar" id = "co">
                         <div class="dropdown">
                             <button onclick="deconnection()"><img src="../Images/avatar.jpg"  width = "50" height="auto" alt="logo_avatar">  </button>
@@ -42,20 +42,35 @@
                 <p>Destination corespondantes aux filtres :</p>
                 <p id = "Destination"></p>
             </form>
-            <img src="../Images/Carte_Normandie2.png" alt="Duché de Normandie" usemap="#Carte_Normandie" class="Carte"/>
-            <map name="Carte_Normandie">
-            <area id= "Caen" onclick = "identification()" shape="rect" coords="244,138 254,150" href="Reservation.html" target="_blank" alt="Caen" />
-            <area id= "Cherbourg" onclick = "identification()" shape="rect" coords="128,82,114,71" href="Reservation.html" target="_blank" alt="Cherbourg" />
-            <area id= "Montfort" onclick = "identification()" shape="rect" coords="343,120,357,130" href="Reservation.html" target="blank" alt="Montfort" />
-            <area id= "Eu" onclick = "identification()" shape="rect" coords="425,4,439,14" href="Reservation.html" target="blank" alt="Eu" />
-            <area id= "Mont-Saint-Michel" onclick = "identification()" shape="rect" coords="113,219,127,230" href="Reservation.html" target="blank" alt="Mont-Saint-Michel" />
-            <area id= "Conteville" onclick = "identification()" shape="rect" coords="320,100,328,114" href="Reservation.html" target="blank" alt="Conteville" />
-            <area id= "Tokyo" onclick = "identification()" shape="rect" coords="37,51,64,62" href="Reservation.html" target="blank" alt="Tokyo" />
-            <area id= "Montréal" onclick = "identification()" shape="rect" coords="5,84,32,109" href="Reservation.html" target="blank" alt="Montréal" />
-            <area id= "Rouen" onclick = "identification()" shape="rect" coords="383,98,402,115" href="Reservation.html" target="blank" alt="Rouen" />
-            <! https://www.image-map.net/ pour avoir les coordonées>
-            </map>
+            <li><img src="../Images/Carte_Normandie2.png" alt="Duché de Normandie" usemap="#Carte_Normandie" class="Carte"/>
+                <map name="Carte_Normandie">
+                <area onclick = "identification()" shape="rect" coords="244,138 254,150" href="Reservation.html" target="_blank" alt="Caen" onmouseover="popup('caen')" />
+                <area id= "Cherbourg" onclick = "identification()" shape="rect" coords="128,82,114,71" href="Reservation.html" target="_blank" alt="Cherbourg" onmouseover="popup('cherbourg')" />
+                <area id= "Montfort" onclick = "identification()" shape="rect" coords="343,120,357,130" href="Reservation.html" target="blank" alt="Montfort" onmouseover="popup('montfort')"/>
+                <area id= "Eu" onclick = "identification()" shape="rect" coords="425,4,439,14" href="Reservation.html" target="blank" alt="Eu" onmouseover="popup('eu')" />
+                <area id= "Mont-Saint-Michel" onclick = "identification()" shape="rect" coords="113,219,127,230" href="Reservation.html" target="blank" alt="Mont-Saint-Michel" onmouseover="popup('michel')"/>
+                <area id= "Conteville" onclick = "identification()" shape="rect" coords="320,100,328,114" href="Reservation.html" target="blank" alt="Conteville" id ="conteville" onmouseover="popup('conteville')"/>
+                <area id= "Tokyo" onclick = "identification()" shape="rect" coords="37,51,64,62" href="Reservation.html" target="blank" alt="Tokyo" onmouseover="popup('tokyo')" />
+                <area id= "Montréal" onclick = "identification()" shape="rect" coords="5,84,32,109" href="Reservation.html" target="blank" alt="Montréal" onmouseover="popup('montreal')"/>
+                <area id= "Rouen" onclick = "identification()" shape="rect" coords="383,98,402,115" href="Reservation.html" target="blank" alt="Rouen" onmouseover="popup('rouen')"/>
+                <! https://www.image-map.net/ pour avoir les coordonées>
+                </map>
             <br>
+            </li>
+            <li><a><h3 id ="description" >description du voyage</h3>
+                    <img id ="caen" src="../Images/Caen.jpg" alt="photo de Caen." width="350" height="auto">
+                    <img id ="eu" src="../Images/Eu.jpg" alt="photo de Eu." width="350" height="auto">
+                    <img id ="conteville" src="../Images/Conteville.jpg" alt="photo de conteville." width="350" height="auto">
+                    <img id ="tokyo" src="../Images/Tokyo.jpg" alt="photo de Tokyo." width="350" height="auto">
+                    <img id ="montfort" src="../Images/Montford.jpeg" alt="photo de Montford." width="350" height="auto">
+                    <img id ="montreal" src="../Images/Montreal.jpg" alt="photo de Montreal." width="350" height="auto">
+                    <img id ="rouen" src="../Images/Rouen.jpeg" alt="photo de Caen." width="350" height="auto">
+                    <img id ="michel" src="../Images/Mont_Saint_Michel.jpg" alt="photo du Mont_Saint_Michel" width="350" height="auto">
+                    <img id ="cherbourg" src="../Images/Cherbourg.jpg" alt="photo de Cherbourg." width="350" height="auto">
+                </a>
+            </li>
+
+
         </main>
 		
         

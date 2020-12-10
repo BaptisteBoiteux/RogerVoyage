@@ -105,6 +105,36 @@ function getTemp(){
       })
 }
 
+function init () {
+  var caen        = document.getElementById("caen");
+  var eu          = document.getElementById("eu");
+  var conteville  = document.getElementById("conteville");
+  var montfort    = document.getElementById("montfort");
+  var cherbourg   = document.getElementById("cherbourg");
+  var michel      = document.getElementById("michel");
+  var tokyo       = document.getElementById("tokyo");
+  var montreal    = document.getElementById("montreal");
+  var rouen       = document.getElementById("rouen");
+  caen.style.display="none";
+  eu.style.display="none";
+  conteville.style.display="none";
+  montfort.style.display="none";
+  cherbourg.style.display="none";
+  michel.style.display="none";
+  tokyo.style.display="none";
+  montreal.style.display="none";
+  rouen.style.display="none";
+}
+
+function popup(ville)
+{
+  init();
+  console.log(ville);
+  var popup = document.getElementById(ville);
+  popup.style.display="block";
+  document.getElementById("description").innerHTML="la superbe ville de "+ ville+"."; 
+}
+
 
 //Page Reservation :
 
@@ -112,7 +142,7 @@ function description()
 {
   //donne une description pour la page réservations
   let sejour_id = new URLSearchParams(window.location.search).get("id");  
-  document.getElementById("description").innerHTML="Vous avez reserver la ville de "+DestinationTab[sejour_id].titre+", le prix de base pour une journée est de "+DestinationTab[sejour_id].prix+"€ avec une température ambiante de "+DestinationTab[sejour_id].temperature+"°."; 
+  document.getElementById("description").innerHTML="Vous voulez réserver la ville de "+DestinationTab[sejour_id].titre+", le prix de base pour une journée est de "+DestinationTab[sejour_id].prix+"€ avec une température ambiante de "+DestinationTab[sejour_id].temperature+"°."; 
 }
 
 function CalculPrixSejour()
