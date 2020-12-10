@@ -125,7 +125,6 @@ nav a:hover{
   background-color: #555; 
 }
 
-#Caen{
-  visibility : hidden;
-  background-color: #555;
+.logo{
+  float : right;
 }
