@@ -180,7 +180,7 @@ function validateForm(){
         alerte += "Un enfant ne peut voyager seul\n";
       }
     }
-    if (!(nb_enfant > 0))
+    if (!(nb_enfant >= 0))
     {
       alerte += "Nombre d'enfants invalide\n"
     }
